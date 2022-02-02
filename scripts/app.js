@@ -13,17 +13,24 @@ firebase.initializeApp(firebaseConfig)
 const db = firebase.firestore()
 
 // Ler todos os dados de uma coleção
-// db.collection("turmaA").get().then((snapshot) => {
-//     snapshot.forEach((doc) => {
+// db.collection("turmaA").get().then(snapshot => {
+//     snapshot.forEach(doc => {
 //         let aluno = doc.data()
 //         console.log(aluno.nome)
 //     })
 // })
 
 // Ler os dados selecionados de uma coleção
-let docRef = db.collection("turmaA").doc("3LVZuPAF3iSOdRRSmtcN")
+// let docRef = db.collection("turmaA").doc("3LVZuPAF3iSOdRRSmtcN")
 
-docRef.get().then((doc) => {
-    let aluno = doc.data()
-    console.log(aluno.nome)
-}) 
+// docRef.get().then(doc => {
+//     let aluno = doc.data()
+//     console.log(aluno.nome)
+// }) 
+
+db.collection("turmaA").where("nome", "==", "JooJ").get().then(snapshot => {
+    snapshot.forEach(doc => {
+        let aluno = doc.data()
+        console.log(aluno.nome)
+    })
+})
