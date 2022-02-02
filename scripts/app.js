@@ -61,14 +61,30 @@ const db = firebase.firestore()
 // })
 
 // Update atualiza / adiciona o objeto do banco de dados
-db.collection(TURMA).doc("AlunoNovo").update({
-    sobrenome: "Lima",
-    "notas.nota1": 9,
-    "notas.nota1": firebase.firestore.FieldValue.increment(1),
-    cidades: firebase.firestore.FieldValue.arrayUnion("Rio de Janeiro"), // Adiciona elemento no array sem sobrescrever os dados
-    cidades: firebase.firestore.FieldValue.arrayRemove("Rio de Janeiro") // Remove elemento no array sem sobrescrever os dados
-}).then(() => {
-    console.log("Documento inserido com sucesso")
-}).catch(err => {
-    console.log(err)
-})
+// db.collection(TURMA).doc("AlunoNovo").update({
+//     sobrenome: "Lima",
+//     "notas.nota1": 9,
+//     "notas.nota1": firebase.firestore.FieldValue.increment(1),
+//     cidades: firebase.firestore.FieldValue.arrayUnion("Rio de Janeiro"), // Adiciona elemento no array sem sobrescrever os dados
+//     cidades: firebase.firestore.FieldValue.arrayRemove("Rio de Janeiro") // Remove elemento no array sem sobrescrever os dados
+// }).then(() => {
+//     console.log("Documento inserido com sucesso")
+// }).catch(err => {
+//     console.log(err)
+// })
+
+// onSnapshot mostra em tempo real as modificações feitas na coleção
+// db.collection("turmaA").onSnapshot(snapshot => {
+//     snapshot.forEach(doc => {
+//         let aluno = doc.data()
+//         console.log(aluno)
+//     })
+// })
+
+// onSnapshot mostra em temo real as modificações em dados selecionados de uma coleção
+// let docRef = db.collection("turmaA").doc("3LVZuPAF3iSOdRRSmtcN")
+
+// docRef.onSanpshot(doc => {
+//     let aluno = doc.data()
+//     console.log(aluno.nome)
+// })
